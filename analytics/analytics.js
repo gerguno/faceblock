@@ -6,10 +6,12 @@ function trackButton(e) {
 	_gaq.push(['_trackEvent', e.target.id, 'clicked']);
 };
 
-var buttons = document.querySelectorAll('a');
+var buttons = document.querySelectorAll('a'),
+	switcher = document.querySelector('#switcher');
 for (var i = 0; i < buttons.length; i++) {
 	buttons[i].addEventListener('click', trackButtonClick);
 }
+switcher.addEventListener('click', trackButtonClick);
 
 (function() {
   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
