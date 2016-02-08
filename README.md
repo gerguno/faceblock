@@ -1,4 +1,4 @@
-## Faceblock Extension for Google Chrome
+## Faceblock - Extension for Google Chrome
 Faceblock is an extension for Google Chrome that blocks posts about stuff you don't like in your Facebook Newsfeed.
 
 Add the name of a politician, pop star or somebody else you are annoyed reading about - and you won't see any more posts mentioning them.
