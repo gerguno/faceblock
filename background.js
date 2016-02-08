@@ -65,3 +65,6 @@ function getCount(callback) {
         callback(count.toString());
     });   
 }
+
+//for Google Analytics
+_gaq.push(['_trackPageview']); 
