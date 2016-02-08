@@ -124,20 +124,6 @@
     <script type="text/javascript" src="/js/todoCtrl.js"></script>
     <script type="text/javascript" src="/js/todoStorage.js"></script>
 
-    <script>
-    function trackButton(e) {
-        _gaq.push(['_trackEvent', e.target.id, 'clicked']);
-    };
-
-    var buttons = document.querySelectorAll('a'),
-        switcher = document.querySelector('#switcher');
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', trackButtonClick);
-    }
-    switcher.addEventListener('click', trackButtonClick);
-    </script>
-
-
 </body>
 </html>
 

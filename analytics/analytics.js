@@ -9,5 +9,14 @@ _gaq.push(['_trackPageview']);
 })();
 
 
+function trackButton(e) {
+  _gaq.push(['_trackEvent', e.target.id, 'clicked']);
+};
 
+var buttons = document.querySelectorAll('a'),
+    switcher = document.querySelector('#switcher');
+for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', trackButtonClick);
+}
+switcher.addEventListener('click', trackButtonClick);
 
