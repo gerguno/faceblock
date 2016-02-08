@@ -1,6 +1,6 @@
 {
   "name": "Faceblock",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "manifest_version": 2,
   "offline_enabled": true,
   "description" : "Block Facebook posts about stuff you don't like",
@@ -33,5 +33,5 @@
     }
   ],
 
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com 'unsafe-eval'; object-src 'self';"
 }
