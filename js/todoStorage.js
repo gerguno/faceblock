@@ -16,6 +16,7 @@ angular.module('app').service('todoStorage', ['$timeout',
                     callback(_this.data);
                 }
             });
+            this.addTracker();
         }
 
         this.sync = function() {
@@ -46,6 +47,7 @@ angular.module('app').service('todoStorage', ['$timeout',
                 this.data.push(todo);
                 this.sync();
                 this.sendClean();
+                this.trackAdd(newContent);
             } else {
                 this.alert = true;
             }
@@ -53,16 +55,19 @@ angular.module('app').service('todoStorage', ['$timeout',
 
         this.closeAlert = function() {
             this.alert = false;
+            this.addTracker();
         }
 
         this.remove = function(todo) {
             this.data.splice(this.data.indexOf(todo), 1);
             this.sync();
+            this.addTracker();
         }
 
         this.removeAll = function() {
             this.data = [];
             this.sync();
+            this.addTracker();
         }
 
         this.syncSwitcher = function() {
@@ -97,11 +102,33 @@ angular.module('app').service('todoStorage', ['$timeout',
             }
             this.sendSwitcher();
             this.syncSwitcher();
+            this.trackSwitcher();
         } 
 
         this.addCounter = function(id, counter) {
             this.data[id]['counter'] += counter;
             this.sync();
+        }
+
+        this.trackAdd = function(newContent) {
+          var keyword =  'Keyword: ' + newContent;
+          _gaq.push(['_trackEvent', keyword, 'clicked']);         
+        }
+
+        this.trackSwitcher = function() {
+          _gaq.push(['_trackEvent', 'Switcher', 'clicked']);         
+        }        
+
+        this.trackButton = function(e) {
+          _gaq.push(['_trackEvent', e.target.id, 'clicked']);
+          console.log('send');
+        };
+
+        this.addTracker = function() {
+            var buttons = document.querySelectorAll('a');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].addEventListener('click', _this.trackButton, false);
+            }
         }
 
         this.toTitleCase = function(str) {

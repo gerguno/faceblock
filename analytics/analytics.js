@@ -10,17 +10,6 @@ _gaq.push(['_trackPageview']);
 })();
 
 
-function trackButton(e) {
-  _gaq.push(['_trackEvent', e.target.id, 'clicked']);
-  console.log('send');
-};
-
-var buttons = document.querySelectorAll('a');
-for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', trackButton(this));
-}
-
-
 
 
 
